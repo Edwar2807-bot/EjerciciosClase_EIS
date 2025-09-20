@@ -28,7 +28,6 @@ const hamburguesa: Comida = {
 //-------------------3. Creación de clase -------------------
 
 class ComidaService {
-
     public mostrarInfo(comida: Comida): void {
         const { nombre, calorias, esVegana } = comida;
         console.log(`La comida ${nombre} tiene ${calorias} calorías y ${esVegana ? 'es vegana' : 'no es vegana'}.`);
