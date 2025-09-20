@@ -5,4 +5,6 @@
 //import './ejercicios/05-Importaciones-exportaciones'
 
 //import './ejercicios/EjercicioClaseInterfaces_3'
-import './ejercicios/06-Clases'
+//import './ejercicios/06-Clases'
+
+import './ejercicios/ejercicioclase_02/ejercicioClase_02'
