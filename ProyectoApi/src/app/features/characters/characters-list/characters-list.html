@@ -1,0 +1,67 @@
+<section class="page">
+  <header class="toolbar">
+    <h1>Rick & Morty Explorer</h1>
+
+    <form class="filters" (ngSubmit)="applyFilters()">
+      <input
+        type="search"
+        placeholder="Buscar por nombre..."
+        [(ngModel)]="qName" name="qName" />
+      <select [(ngModel)]="qStatus" name="qStatus" aria-label="Filtrar por estado">
+        <option value="all">Todos</option>
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <button class="btn" type="submit">Aplicar</button>
+    </form>
+
+    
+  </header>
+
+    @if (errorMsg) {
+        <p class="error">{{ errorMsg }}</p>
+    }
+
+  <div class="grid">
+    <article class="card" *ngFor="let c of characters" (click)="openModal(c)" tabindex="0">
+      <div class="thumb">
+        <img [src]="c.image" [alt]="c.name" loading="lazy" />
+        <span class="status" [attr.data-status]="c.status">{{ c.status }}</span>
+      </div>
+      <div class="meta">
+        <h2>{{ c.name }}</h2>
+        <p class="sub">{{ c.species }} • {{ c.gender }}</p>
+        <p class="loc" title="Última ubicación">📍 {{ c.location?.name }}</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="actions">
+    <button class="btn ghost" (click)="loadMore()" [disabled]="loading || page>=pages">
+      {{ page < pages ? 'Cargar más' : 'No hay más resultados' }}
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="selected" (click)="closeModal()"></div>
+  <div class="modal" *ngIf="selected" role="dialog" aria-modal="true" aria-label="Detalle de personaje">
+    <button class="close" (click)="closeModal()" aria-label="Cerrar">×</button>
+    <div class="modal-inner">
+      <img class="modal-img" [src]="selected?.image" [alt]="selected?.name" />
+      <div class="modal-content">
+        <h3>{{ selected?.name }}</h3>
+        <div class="chips">
+          <span class="chip" [attr.data-status]="selected?.status">{{ selected?.status }}</span>
+          <span class="chip">{{ selected?.species }}</span>
+          <span class="chip">{{ selected?.gender }}</span>
+        </div>
+        <ul class="detail">
+          <li><strong>Origen:</strong> {{ selected?.origin?.name }}</li>
+          <li><strong>Ubicación:</strong> {{ selected?.location?.name }}</li>
+          <li><strong>Episodios:</strong> {{ selected?.episode?.length }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
