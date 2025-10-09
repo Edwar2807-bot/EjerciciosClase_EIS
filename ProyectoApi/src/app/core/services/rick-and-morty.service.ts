@@ -1,35 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CharactersResponse } from '../Interfaces/ICharacterResponse';
 
-export interface ApiInfo 
-{ 
-  count: number;
-  pages: number; 
-  next: string | null; 
-  prev: string | null; 
-}
-
-export interface Character {
-  id: number;
-  name: string;
-  status: 'Alive' | 'Dead' | 'unknown';
-  species: string;
-  type: string;
-  gender: string;
-  origin: { name: string; url: string };
-  location: { name: string; url: string };
-  image: string;
-  episode: string[];
-}
-
-export interface CharactersResponse 
-{ 
-  info: ApiInfo; 
-  results: Character[]; 
-}
-
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: 'root' }) //ajusta para que sea disponible en toda la app
 export class RickAndMortyService {
   private base = 'https://rickandmortyapi.com/api';
 

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { RickAndMortyService, Character, CharactersResponse } from '../../../core/services/rick-and-morty.service';
+import { RickAndMortyService} from '../../core/services/rick-and-morty.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Character } from '../../core/Interfaces/ICharacter';
+import { CharactersResponse } from '../../core/Interfaces/ICharacterResponse';
 
 @Component({
-  selector: 'app-characters-list',
-  templateUrl: './characters-list.html',
-  standalone: true, 
-  imports: [CommonModule, FormsModule], 
-  styleUrls: ['./characters-list.css']
+  selector: 'app-characters',
+  standalone: true,
+  imports: [FormsModule],
+  templateUrl: './characters.html',
+  styleUrls: ['./characters.css']
 })
+
 export class CharactersListComponent implements OnInit {
   characters: Character[] = [];
   loading = false;

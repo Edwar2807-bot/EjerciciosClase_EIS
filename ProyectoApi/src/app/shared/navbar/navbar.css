@@ -1,0 +1,37 @@
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #97ce4c; /* Verde Rick and Morty */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #2b2b2b;
+  text-decoration: none;
+  margin: 0 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+nav a:hover {
+  background-color: #44281d; /* Marrón Rick and Morty */
+  color: #97ce4c;
+  transform: scale(1.1);
+}
+
+nav a.active {
+  background-color: #44281d;
+  color: #97ce4c;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

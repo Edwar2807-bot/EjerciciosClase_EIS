@@ -1,11 +1,23 @@
 import { Routes } from '@angular/router';
-import { CharactersListComponent } from './features/characters/characters-list/characters-list';
+import { CharactersListComponent } from './pages/characters/characters';
+import { Episodes } from './pages/episodes/episodes';
+import { Locations } from './pages/locations/locations';
 
 export const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     component: CharactersListComponent
   },
-  { path: '**',
+  {
+    path: 'episodes',
+    component: Episodes
+  },
+  {
+    path: 'locations',
+    component: Locations
+  },
+  {
+    path: '**',
     redirectTo: ''
   }
 ];
