@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface ApiInfo { count: number; pages: number; next: string | null; prev: string | null; }
+export interface ApiInfo 
+{ 
+  count: number;
+  pages: number; 
+  next: string | null; 
+  prev: string | null; 
+}
 
 export interface Character {
   id: number;
@@ -17,7 +23,11 @@ export interface Character {
   episode: string[];
 }
 
-export interface CharactersResponse { info: ApiInfo; results: Character[]; }
+export interface CharactersResponse 
+{ 
+  info: ApiInfo; 
+  results: Character[]; 
+}
 
 @Injectable({ providedIn: 'root' })
 export class RickAndMortyService {
