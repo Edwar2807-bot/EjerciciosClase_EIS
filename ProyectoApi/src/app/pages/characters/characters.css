@@ -2,7 +2,7 @@
   --bg:#0b1010;
   --card:#14141c;
   --text:#f5f7fb;
-  --muted:#b9bed1;
+  --muted:#fbfcfd;
   --accent:#FFB36B; /* toque neón suave */
   --grid-gap: 18px;
 }
@@ -74,8 +74,9 @@
   }
   .meta{
     padding: 10px 12px 14px;
-    h2{ margin:0 0 4px; font-size:1rem; }
-    .sub{ margin:0; color:var(--muted); font-size:.88rem; }
+
+    h2{ margin:0 0 4px; color:#d7def8; font-size:1rem; }
+    .sub{ margin:0; color:#d7def8;font-size:.88rem; }
     .loc{ margin:6px 0 0; color:#d7def8; font-size:.86rem; opacity:.9; }
   }
 }

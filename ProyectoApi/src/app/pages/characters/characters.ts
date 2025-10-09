@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RickAndMortyService} from '../../core/services/rick-and-morty.service';
+import { RickAndMortyService } from '../../core/services/rick-and-morty.service';
 import { FormsModule } from '@angular/forms';
 import { Character } from '../../core/Interfaces/ICharacter';
 import { CharactersResponse } from '../../core/Interfaces/ICharacterResponse';
@@ -28,7 +28,7 @@ export class CharactersListComponent implements OnInit {
   selected: Character | null = null;
 
   //Inyecta el servicio para consumir la API
-  constructor(private api: RickAndMortyService) {}
+  constructor(private api: RickAndMortyService) { }
 
   ngOnInit(): void {
     this.fetch(true);
@@ -64,9 +64,8 @@ export class CharactersListComponent implements OnInit {
       });
   }
 
-  openModal(c: Character)
-   { 
-      this.selected = c; 
+  openModal(c: Character) {
+    this.selected = c;
   }
 
   closeModal() { this.selected = null; }
