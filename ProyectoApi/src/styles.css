@@ -10,4 +10,6 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0a192f 0%, #222 100%) !important;
+  min-height: 100vh;
 }
