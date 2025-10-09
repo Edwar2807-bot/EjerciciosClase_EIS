@@ -1,7 +1,6 @@
 <section class="page">
+
   <header class="toolbar">
-
-
     <form class="filters" (ngSubmit)="applyFilters()">
       <input
         type="search"
@@ -21,6 +20,7 @@
     <p class="error">{{ errorMsg }}</p>
   }
 
+  <!-- Mostrar los personajes -->
   <div class="grid">
     @for (c of characters; track c.id) {
       <article class="card" (click)="openModal(c)" tabindex="0">

@@ -53,7 +53,7 @@ export class CharactersListComponent implements OnInit {
       .subscribe({
         next: (res: CharactersResponse) => {
           this.pages = res.info.pages ?? 1;
-          this.characters = reset ? res.results : [...this.characters, ...res.results];
+          this.characters = reset ? res.results : [...this.characters, ...res.results]; //spread operator
           this.loading = false;
         },
         error: (err) => {
@@ -64,6 +64,10 @@ export class CharactersListComponent implements OnInit {
       });
   }
 
-  openModal(c: Character) { this.selected = c; }
+  openModal(c: Character)
+   { 
+      this.selected = c; 
+  }
+
   closeModal() { this.selected = null; }
 }
