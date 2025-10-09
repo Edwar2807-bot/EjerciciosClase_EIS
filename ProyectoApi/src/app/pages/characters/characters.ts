@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RickAndMortyService} from '../../core/services/rick-and-morty.service';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Character } from '../../core/Interfaces/ICharacter';
 import { CharactersResponse } from '../../core/Interfaces/ICharacterResponse';
@@ -13,6 +12,7 @@ import { CharactersResponse } from '../../core/Interfaces/ICharacterResponse';
   styleUrls: ['./characters.css']
 })
 
+//Componente para mostrar y filtrar la lista de personajes
 export class CharactersListComponent implements OnInit {
   characters: Character[] = [];
   loading = false;
@@ -27,6 +27,7 @@ export class CharactersListComponent implements OnInit {
   // modal
   selected: Character | null = null;
 
+  //Inyecta el servicio para consumir la API
   constructor(private api: RickAndMortyService) {}
 
   ngOnInit(): void {

@@ -9,6 +9,9 @@ export class RickAndMortyService {
 
   constructor(private http: HttpClient) {}
 
+  //Observable: flujo de datos que puede ser observado - Hace que sea reactivo la respuesta
+  //HttpParams: para construir parámetros de consulta
+
   getCharacters(opts: { page?: number; name?: string; status?: string } = {}): Observable<CharactersResponse> {
     let params = new HttpParams();
     if (opts.page) params = params.set('page', String(opts.page));
@@ -16,4 +19,8 @@ export class RickAndMortyService {
     if (opts.status && opts.status !== 'all') params = params.set('status', opts.status);
     return this.http.get<CharactersResponse>(`${this.base}/character`, { params });
   }
+
+  
+
+
 }
