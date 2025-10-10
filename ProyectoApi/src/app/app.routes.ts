@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
 import { CharactersListComponent } from './pages/characters/characters';
 import { Episodes } from './pages/episodes/episodes';
-import { Locations } from './pages/locations/locations';
 import { Favorites } from './pages/favorites/favorites';
 import { AuthLocalService } from './core/services/auth-local.service';
 import { LoginSimpleComponent } from './features/auth/login-simple';
 import { SaveCredentialsComponent } from './features/auth/save-credentials';
+import { LocationsListComponent } from './pages/locations/locations';
 
 export const routes: Routes = [
   {
@@ -26,7 +26,7 @@ export const routes: Routes = [
   },
   {
     path: 'locations',
-    component: Locations
+    component: LocationsListComponent
   },
   {
     path: 'favorites',

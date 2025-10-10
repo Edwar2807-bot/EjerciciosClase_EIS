@@ -1,1 +1,42 @@
-<p>locations works!</p>
+<section class="page">
+
+  <header class="toolbar">
+    <form class="filters" (ngSubmit)="applyFilters()">
+      <input
+        type="search"
+        placeholder="Buscar por nombre..."
+        [(ngModel)]="qName" name="qName" />
+      <select [(ngModel)]="qtype" name="qtype" aria-label="Filtrar por tipo de ubicación">
+        <option value="all">Todos</option>
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <button class="btn" type="submit">Aplicar</button>
+    </form>
+  </header>
+
+  @if (errorMsg) {
+    <p class="error">{{ errorMsg }}</p>
+  }
+
+  <!-- Mostrar las ubicaciones -->
+  <div class="grid">
+    @for (c of locations; track c.name) {
+      <article class="card" (click)="openModal(c)" tabindex="0">
+        <div class="meta">
+          <h2>Ubicación: {{ c.name }}</h2>
+          <p class="sub">Tipo: {{ c.type }}</p>
+          <p class="sub">Dimensión: {{ c.dimension }}</p>
+          <p class="loc" title="Última ubicación">📍 {{ c.residents}}</p>
+        </div>
+      </article>
+    }
+  </div>
+
+  <div class="actions">
+    <button class="btn ghost" (click)="loadMore()" [disabled]="loading || page>=pages">
+      {{ page < pages ? 'Cargar más' : 'No hay más resultados' }}
+    </button>
+  </div>
+</section>
