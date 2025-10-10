@@ -3,6 +3,8 @@ import { RickAndMortyService } from '../../core/services/rick-and-morty.service'
 import { FormsModule } from '@angular/forms';
 import { Character } from '../../core/Interfaces/ICharacter';
 import { CharactersResponse } from '../../core/Interfaces/ICharacterResponse';
+import { FavoritesService } from '../../core/services/favorites.service';
+import { AuthLocalService } from '../../core/services/auth-local.service';
 
 @Component({
   selector: 'app-characters',
@@ -27,11 +29,36 @@ export class CharactersListComponent implements OnInit {
   // modal
   selected: Character | null = null;
 
-  //Inyecta el servicio para consumir la API
-  constructor(private api: RickAndMortyService) { }
+  //Inyecta los servicios necesarios
+  constructor(
+    private api: RickAndMortyService,
+    private favoritesService: FavoritesService,
+    private authService: AuthLocalService
+  ) { }
 
   ngOnInit(): void {
     this.fetch(true);
+  }
+
+  // Verifica si el usuario está logueado
+  isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
+  }
+
+  // Verifica si un personaje está en favoritos
+  isFavorite(character: Character): boolean {
+    return this.favoritesService.isFavorite(character.id);
+  }
+
+  // Alterna el estado de favorito de un personaje
+  toggleFavorite(event: Event, character: Character): void {
+    event.stopPropagation(); // Evita que se abra el modal
+    
+    if (this.isFavorite(character)) {
+      this.favoritesService.removeFromFavorites(character.id);
+    } else {
+      this.favoritesService.addToFavorites(character);
+    }
   }
 
   applyFilters() {

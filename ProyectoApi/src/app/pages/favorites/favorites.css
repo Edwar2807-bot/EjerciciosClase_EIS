@@ -1,0 +1,143 @@
+:root {
+  --primary-color: #0a192f;
+  --secondary-color: #44281d;
+  --accent: #FFB36B;
+}
+
+.page {
+  min-height: 100dvh;
+  padding: 2rem;
+  color: #f5f7fb;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f5f7fb;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 400px;
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+  color: #f5f7fb;
+}
+
+.empty-state .btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.empty-state .btn:hover {
+  background: #112240;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.card {
+  background: linear-gradient(180deg, #1a1c27, #131522);
+  border: 1px solid #23263a;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card .thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card .thumb .status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: .74rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #25dd81cc;
+  border: 1px solid #ffffff17;
+}
+
+.card .thumb .status[data-status="Alive"] { box-shadow: 0 0 12px #00ffb3; }
+.card .thumb .status[data-status="Dead"] { 
+  background: #ff4d6dcc;
+  box-shadow: 0 0 12px #ff4d6d; 
+}
+.card .thumb .status[data-status="unknown"] { 
+  background: #9aa0b3cc;
+  box-shadow: 0 0 12px #9aa0b3; 
+}
+
+.remove-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 59, 59, 0.8);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background: rgba(255, 59, 59, 1);
+  transform: scale(1.1);
+}
+
+.card .meta {
+  padding: 1rem;
+}
+
+.card .meta h2 {
+  margin: 0 0 0.5rem;
+  color: #f5f7fb;
+  font-size: 1.25rem;
+}
+
+.card .meta p {
+  margin: 0;
+  color: #d7def8;
+}
+
+.card .meta .sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.card .meta .loc {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}

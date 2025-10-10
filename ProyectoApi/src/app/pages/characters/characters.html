@@ -27,6 +27,15 @@
         <div class="thumb">
           <img [src]="c.image" [alt]="c.name" loading="lazy" />
           <span class="status" [attr.data-status]="c.status">{{ c.status }}</span>
+          @if (isLoggedIn()) {
+            <button 
+              class="favorite-btn" 
+              [class.is-favorite]="isFavorite(c)"
+              (click)="toggleFavorite($event, c)" 
+              [attr.aria-label]="isFavorite(c) ? 'Remover de favoritos' : 'Añadir a favoritos'">
+              ❤
+            </button>
+          }
         </div>
         <div class="meta">
           <h2>{{ c.name }}</h2>

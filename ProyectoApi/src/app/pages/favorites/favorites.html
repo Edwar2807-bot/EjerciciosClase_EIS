@@ -1,1 +1,32 @@
-<p>favorites works!</p>
+<section class="page">
+  <h1>Mis Personajes Favoritos</h1>
+
+  @if (favorites.length === 0) {
+    <div class="empty-state">
+      <p>No tienes personajes favoritos guardados.</p>
+      <a routerLink="/characters" class="btn">Explorar personajes</a>
+    </div>
+  } @else {
+    <div class="grid">
+      @for (c of favorites; track c.id) {
+        <article class="card">
+          <div class="thumb">
+            <img [src]="c.image" [alt]="c.name" loading="lazy" />
+            <span class="status" [attr.data-status]="c.status">{{ c.status }}</span>
+            <button 
+              class="remove-btn" 
+              (click)="removeFavorite(c)" 
+              aria-label="Remover de favoritos">
+              ×
+            </button>
+          </div>
+          <div class="meta">
+            <h2>{{ c.name }}</h2>
+            <p class="sub">{{ c.species }} • {{ c.gender }}</p>
+            <p class="loc" title="Última ubicación">📍 {{ c.location?.name }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>
