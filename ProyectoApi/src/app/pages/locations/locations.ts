@@ -3,6 +3,7 @@ import { RickAndMortyService } from '../../core/services/rick-and-morty.service'
 import { FormsModule } from '@angular/forms';
 import { LocationCharacter, Locations } from '../../core/Interfaces/ILocations';
 import { LocationResponse } from '../../core/Interfaces/ILocationResponse';
+import { Character } from '../../core/Interfaces/ICharacter';
 
 
 @Component({
@@ -60,7 +61,27 @@ export class LocationsListComponent implements OnInit {
       .subscribe({
         next: (res: LocationResponse) => {
           this.pages = res.info.pages ?? 1;
-          this.locations = reset ? res.results : [...this.locations, ...res.results]; //spread operator
+          const locations = reset ? res.results : [...this.locations, ...res.results];
+          
+          // Para cada ubicación, obtener los personajes
+          locations.forEach(location => {
+            location.residentsData = [];
+            if (location.residents && location.residents.length > 0) {
+              location.residents.forEach(residentUrl => {
+                const characterId = this.getCharacterId(residentUrl);
+                if (characterId) {
+                  this.api.getCharacterbyId(characterId).subscribe({
+                    next: (character: any) => {
+                      if (!location.residentsData) location.residentsData = [];
+                      location.residentsData.push(character);
+                    }
+                  });
+                }
+              });
+            }
+          });
+          
+          this.locations = locations;
           this.loading = false;
         },
         error: (err) => {

@@ -28,7 +28,18 @@
           <h2>Ubicación: {{ c.name }}</h2>
           <p class="sub">Tipo: {{ c.type }}</p>
           <p class="sub">Dimensión: {{ c.dimension }}</p>
-          <p class="loc" title="Última ubicación">📍 {{ c.residents}}</p>
+          <div class="residents">
+            <p><strong>Residentes ({{ c.residents.length }}):</strong></p>
+            <div class="residents-grid">
+              @for (resident of c.residentsData; track resident.id) {
+                <div class="resident-card">
+                  <img [src]="resident.image" [alt]="resident.name" loading="lazy" />
+                  <p>{{ resident.name }}</p>
+                  <span class="status" [attr.data-status]="resident.status">{{ resident.status }}</span>
+                </div>
+              }
+            </div>
+          </div>
         </div>
       </article>
     }
