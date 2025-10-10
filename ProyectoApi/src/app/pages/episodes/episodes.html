@@ -20,7 +20,18 @@
           <h2>{{ e.name }}</h2>
           <p><strong>Fecha de emisión:</strong> {{ e.air_date }}</p>
           <p><strong>Código:</strong> {{ e.episode }}</p>
-          <p><strong>Personajes:</strong> {{ e.characters.length }}</p>
+          <div class="characters">
+            <p><strong>Personajes ({{ e.characters.length }}):</strong></p>
+            <div class="characters-grid">
+              @for (character of e.charactersData; track character.id) {
+                <div class="character-card">
+                  <img [src]="character.image" [alt]="character.name" loading="lazy" />
+                  <p>{{ character.name }}</p>
+                  <span class="status" [attr.data-status]="character.status">{{ character.status }}</span>
+                </div>
+              }
+            </div>
+          </div>
         </div>
       </article>
     }
