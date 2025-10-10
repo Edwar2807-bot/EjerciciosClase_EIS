@@ -10,7 +10,7 @@ import { LocationResponse } from '../../core/Interfaces/ILocationResponse';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './locations.html',
-  styles: ``
+  styleUrls: ['./locations.css']
 })
 
 export class LocationsListComponent implements OnInit {
@@ -23,7 +23,7 @@ export class LocationsListComponent implements OnInit {
 
   // filtros
   qName = '';
-  qtype: 'all' | 'Alive' | 'Dead' | 'unknown' = 'all';
+  qtype: 'all' | 'Planet' | 'Cluster' | 'Microverse' = 'all';
 
   // modal
   selected: Locations | null = null;
