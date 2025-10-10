@@ -266,6 +266,7 @@
 
 .modal-content {
   padding: 8px 16px;
+  background: #0a0c14;
 }
 
 .modal-content h3 {
@@ -315,7 +316,7 @@
   margin: 0;
   padding: 20px;
   list-style: none;
-  background: rgba(46, 204, 113, 0.1);
+  background: rgba(3, 4, 27, 1);
   border-radius: 16px;
   border: 1px solid rgba(46, 204, 113, 0.2);
 }
