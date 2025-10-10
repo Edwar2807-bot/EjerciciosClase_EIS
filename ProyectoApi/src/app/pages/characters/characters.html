@@ -66,9 +66,26 @@
             <span class="chip">{{ selected?.gender }}</span>
           </div>
           <ul class="detail">
-            <li><strong>Origen:</strong> {{ selected?.origin?.name }}</li>
-            <li><strong>Ubicación:</strong> {{ selected?.location?.name }}</li>
-            <li><strong>Episodios:</strong> {{ selected?.episode?.length }}</li>
+            <li>
+              <strong>🌍 Origen:</strong> 
+              <span>{{ selected?.origin?.name }}</span>
+            </li>
+            <li>
+              <strong>📍 Ubicación:</strong> 
+              <span>{{ selected?.location?.name }}</span>
+            </li>
+            <li>
+              <strong>📺 Episodios:</strong> 
+              <span>{{ selected?.episode?.length }} apariciones</span>
+            </li>
+            <li>
+              <strong>👽 Especie:</strong> 
+              <span>{{ selected?.species }}</span>
+            </li>
+            <li>
+              <strong>⚥ Género:</strong> 
+              <span>{{ selected?.gender }}</span>
+            </li>
           </ul>
         </div>
       </div>
